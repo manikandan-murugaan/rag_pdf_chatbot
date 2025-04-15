@@ -113,6 +113,20 @@ def user_input(user_question, model_name, api_key, pdf_docs, conversation_histor
                 margin-top: 0.5rem;
                 color: #ccc;
             }}
+        </style>
+        <div class="chat-message user">
+            <div class="avatar">
+                <img src="https://i.ibb.co/CKpTnWr/user-icon-2048x2048-ihoxz4vq.png">
+            </div>    
+            <div class="message">{user_question_output}</div>
+        </div>
+        <div class="chat-message bot">
+            <div class="avatar">
+                <img src="https://i.ibb.co/wNmYHsx/langchain-logo.webp" >
+            </div>
+            <div class="message">{response_output}</div>
+            </div>
+            
         """,
         unsafe_allow_html=True
     )
@@ -160,16 +174,17 @@ def main():
 
     if 'conversation_history' not in st.session_state:
         st.session_state.conversation_history = []
+    
 
 
 
-    model_name = st.sidebar.radio("Select the Model:", ( "Play With PDF"))
+    model_name = st.sidebar.radio("Select the Model:", ( "Google AI"))
 
-    api_key = None
+    api_key ="AIzaSyA9ZEvx9tTELOIsxrubyeZTCekTj6LHwJM"
 
     if model_name == "Google AI":
         api_key = "AIzaSyA9ZEvx9tTELOIsxrubyeZTCekTj6LHwJM"
-                
+   
     with st.sidebar:
         st.title("Menu:")
         
@@ -183,7 +198,7 @@ def main():
             st.session_state.user_question = None  # Clear user question input 
             
             
-            api_key = None  # Reset Google API key
+            api_key = "AIzaSyA9ZEvx9tTELOIsxrubyeZTCekTj6LHwJM" 
             pdf_docs = None  # Reset PDF document
             
         else:
