@@ -113,20 +113,6 @@ def user_input(user_question, model_name, api_key, pdf_docs, conversation_histor
                 margin-top: 0.5rem;
                 color: #ccc;
             }}
-        </style>
-        <div class="chat-message user">
-            <div class="avatar">
-                <img src="https://i.ibb.co/CKpTnWr/user-icon-2048x2048-ihoxz4vq.png">
-            </div>    
-            <div class="message">{user_question_output}</div>
-        </div>
-        <div class="chat-message bot">
-            <div class="avatar">
-                <img src="https://i.ibb.co/wNmYHsx/langchain-logo.webp" >
-            </div>
-            <div class="message">{response_output}</div>
-            </div>
-            
         """,
         unsafe_allow_html=True
     )
@@ -174,31 +160,16 @@ def main():
 
     if 'conversation_history' not in st.session_state:
         st.session_state.conversation_history = []
-    linkedin_profile_link = "https://www.linkedin.com/in/snsupratim/"
-    kaggle_profile_link = "https://www.kaggle.com/snsupratim/"
-    github_profile_link = "https://github.com/snsupratim/"
-
-    st.sidebar.markdown(
-        f"[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]({linkedin_profile_link}) "
-        f"[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)]({kaggle_profile_link}) "
-        f"[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)]({github_profile_link})"
-    )
 
 
 
-    model_name = st.sidebar.radio("Select the Model:", ( "Google AI"))
+    model_name = st.sidebar.radio("Select the Model:", ( "Play With PDF"))
 
     api_key = None
 
     if model_name == "Google AI":
-        api_key = st.sidebar.text_input("Enter your Google API Key:")
-        st.sidebar.markdown("Click [here](https://ai.google.dev/) to get an API key.")
-        
-        if not api_key:
-            st.sidebar.warning("Please enter your Google API Key to proceed.")
-            return
-
-   
+        api_key = "AIzaSyA9ZEvx9tTELOIsxrubyeZTCekTj6LHwJM"
+                
     with st.sidebar:
         st.title("Menu:")
         
